@@ -4,6 +4,7 @@ import DisplayNotesList from "../DisplayNotesList";
 import EmptyNote from "../EmptyNote";
 import "react-tabs/style/react-tabs.css";
 import "./index.css";
+import DisplayTrashNote from "../DisplayTrashNote";
 
 function Notes({
   options,
@@ -75,6 +76,9 @@ function Notes({
     let newFilteredNotes = [...notes];
     newFilteredNotes = newFilteredNotes.filter((item) => item.id !== id);
     console.log("Filtered Items", newFilteredNotes);
+    if (tabSelected === "show-pinned") {
+      setStatusGreen("new-note-update-status");
+    }
     setNotes(newFilteredNotes);
     openSnackbar("Note Pinned Sucessfully", 2000);
   };
@@ -90,6 +94,9 @@ function Notes({
       console.log("INSIDE NOTES DELETE");
       newNotes = newNotes.filter((item) => item.id !== deleteItem.id);
       console.log("AFTER FILTER Items", newNotes);
+      setTrash((prevData) => {
+        return [deleteItem, ...prevData];
+      });
       setNotes(newNotes);
       openSnackbar("Note Deleted Sucessfully", 2000);
     } else if (newTrashNotes.includes(deleteItem)) {
@@ -101,6 +108,9 @@ function Notes({
     } else {
       newPinnedData = newPinnedData.filter((item) => item.id !== deleteItem.id);
       console.log("AFTER FILTER Items", newPinnedData);
+      setTrash((prevData) => {
+        return [deleteItem, ...prevData];
+      });
       setPinnedNotesData(newPinnedData);
       openSnackbar("Note Deleted Sucessfully", 2000);
     }
@@ -199,22 +209,6 @@ function Notes({
       />
       {/* <div >All</div> */}
       <div className="tabs-panel">
-        {/* {filteredResults.length > 0 ||
-        notes.length > 0 ||
-        pinnedNotesData.length > 0 ? (
-          <div className="tabs-list">
-            <div
-              className={tabSelected === "All" ? "tabs-active" : "tabs-default"}
-              onClick={resetNotesData}
-            >
-              All
-             
-            </div>
-           
-          </div>
-        ) : (
-          ""
-        )} */}
         {pinnedNotesData.length > 0 &&
         filteredResults.length === 0 &&
         (tabSelected === "All" || tabSelected === "show-pinned") ? (
@@ -243,22 +237,17 @@ function Notes({
               );
             })
           ) : tabSelected === "show-pinned" ? (
-            <EmptyNote />
+            <div className="empty-pinned-items-message">NO ITEMS PINNED</div>
           ) : (
             ""
           )}
         </div>
 
-        {/* {filteredResults.length > 0 || notes.length > 0 ? (
-          <div className="pinned-heading">OTHERS</div>
-        ) : (
-          ""
-        )} */}
-
         {filteredResults.length > 0 && (
           <div className="pinned-heading">SEARCHED RESULTS</div>
         )}
         {pinnedNotesData.length > 0 &&
+        notes.length > 0 &&
         filteredResults.length === 0 &&
         tabSelected === "All" ? (
           <div className="pinned-heading">OTHERS</div>
@@ -309,23 +298,13 @@ function Notes({
         ) : tabSelected === "show-trash" ? (
           <>
             <div className="notes-list-container">
-              {trash.length > 0
-                ? trash.map((item, index) => {
-                    return (
-                      <DisplayNotesList
-                        key={index}
-                        onDelete={handleDelete}
-                        onCopy={handleCopyItem}
-                        item={item}
-                        pinned={pinned}
-                        filterPinnedData={filterPinnedData}
-                        handlePinnedData={handlePinnedData}
-                        addPinnedData={handlePinnedData}
-                        pinnedNotesData={pinnedNotesData}
-                      />
-                    );
-                  })
-                : <div className="empty-trash-message">NO TRASH GATHERED</div>}
+              {trash.length > 0 ? (
+                trash.map((item, index) => {
+                  return <DisplayTrashNote key={index} item={item} />;
+                })
+              ) : (
+                <div className="empty-trash-message">NO TRASH GATHERED</div>
+              )}
             </div>
           </>
         ) : (

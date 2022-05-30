@@ -3,7 +3,7 @@ import Notes from "./Components/Notes";
 import SideBar from "./Components/SideBar";
 import SnackbarProvider from "react-simple-snackbar";
 import { useSnackbar } from "react-simple-snackbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const options = {
   position: "top-center",
@@ -33,11 +33,19 @@ function App() {
   const [filteredResults, setFilteredResults] = useState(
     JSON.parse(localStorage.getItem("searchFilterNotes")) || []
   );
-  const [searchInput, setSearchInput] = useState("");
-
   const [trash, setTrash] = useState(
     JSON.parse(localStorage.getItem("trashData")) || []
   );
+  const [searchInput, setSearchInput] = useState("");
+  const [statusGreen, setStatusGreen] = useState(
+    "new-note-update-status-default"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("trashData", JSON.stringify(trash));
+  }, [trash]);
+
+
   const showAllNotes = () => {
     console.log("SHOW ALL");
 
@@ -69,9 +77,7 @@ function App() {
     setTabSelected("show-trash");
   };
 
-  const [statusGreen, setStatusGreen] = useState(
-    "new-note-update-status-default"
-  );
+  
   return (
     <div className="App">
       <div className="sidebar-container">

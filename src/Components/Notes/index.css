@@ -77,9 +77,9 @@
   grid-template-columns: repeat(4, 250px);
   margin-top: 1%;
   /* text-align: center; */
-  /* border: 2px solid yellow;
-  text-align: center;
-  justify-content: center; */
+  /* border: 2px solid yellow;  */
+  /* text-align: center; */
+  /* justify-content: center;  */
 }
 
 .tabs-panel {
@@ -148,10 +148,7 @@
   margin-left: 5%;
   animation: disappear 2s ease forwards;
 }
-.empty-trash-message {
-  /* padding: 10px; */
-  /* border: 2px solid white; */
-/* text-align: center; */
+.empty-trash-message , .empty-pinned-items-message{
   color: antiquewhite;
 }
 

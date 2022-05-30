@@ -1,21 +1,46 @@
-.notebook-design{
-    border-top:3px solid rgb(247, 225, 218);
-    border-right:5px solid rgb(247, 225, 218);
-    /* box-shadow: 0 0 8px rgb(14, 106, 143); */
-    height: 60px;
-    border-bottom-right-radius:15px ;
-    border-top-left-radius:15px ;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    color: rgb(247, 225, 218);
-    align-items: center;
-    
-    /* background-color: rgb(247, 225, 218); */
-    /* border: 3px solid rgb(247, 225, 218); */
+.notebook-design {
+  border-top: 3px solid rgb(247, 225, 218);
+  border-right: 5px solid rgb(247, 225, 218);
+  /* box-shadow: 0 0 8px rgb(14, 106, 143); */
+  height: 60px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: rgb(247, 225, 218);
+  align-items: center;
+
+  /* background-color: rgb(247, 225, 218); */
+  /* border: 3px solid rgb(247, 225, 218); */
 }
 
-.side-tab-notes:hover, .side-tab-pinned:hover, .side-tab-delete-all:hover, .side-tab-trash:hover{
-    cursor: pointer;
-    background-image: linear-gradient(to right,rgb(2,4,43), rgb(28, 33, 119));
+.side-tab-notes:hover,
+.side-tab-pinned:hover,
+.side-tab-delete-all:hover,
+.side-tab-trash:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, rgb(2, 4, 43), rgb(28, 33, 119));
+}
+.side-tab-trash,
+.side-tab-pinned,
+.side-tab-delete-all,
+.side-tab-notes {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  justify-content: space-around;
+  padding-left: 10px;
+  padding-right: 15px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.notes-status-tab {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  width: 60px;
+  justify-content: space-around;
+  align-items: center;
 }

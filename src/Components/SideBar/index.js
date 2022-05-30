@@ -32,15 +32,37 @@ function SideBar({
         className="notebook-design side-tab-notes"
         onClick={handleNotesClicked}
       >
-        NOTES <span className={statusGreen}></span>
+        <div>
+          <i className="fa fa-sticky-note" aria-hidden="true"></i>
+        </div>
+        <div className="notes-status-tab">
+          {" "}
+          NOTES <span className={statusGreen}></span>
+        </div>
       </div>
       <div
         className="notebook-design side-tab-pinned"
         onClick={handlePinnedItemsClicked}
       >
-        PINNED
+        <div>
+          {" "}
+          <i className="fa fa-thumb-tack"></i>
+        </div>
+        <div>PINNED</div>
       </div>
+    
       <div
+        className="notebook-design side-tab-trash"
+        onClick={showTrashClicked}
+      >
+        <div>
+          {" "}
+          <i class='fas fa-trash-alt'></i>
+
+        </div>
+        <div> TRASH</div>
+      </div>
+      {/* <div
         className="notebook-design side-tab-delete-all"
         onClick={
           pinnedNotesData.length > 0 || notes.length > 0
@@ -51,14 +73,9 @@ function SideBar({
         {" "}
         {pinnedNotesData.length === 0 && notes.length === 0
           ? "ALL DELETED"
-          : "DELETE ALL"}
-      </div>
-      <div
-        className="notebook-design side-tab-trash"
-        onClick={showTrashClicked}
-      >
-        TRASH
-      </div>
+          : "EMPTY NOTES"}
+      </div> */}
+      <div className="notebook-design"></div>
       <div className="notebook-design"></div>
       <div className="notebook-design"></div>
       <div className="notebook-design"></div>
