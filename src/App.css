@@ -1,0 +1,19 @@
+.App {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+.sidebar-container {
+  width: 8%;
+  height:auto;
+  background-color: rgb(2,4,43);
+}
+.notes-container {
+  width: 92%;
+  height: auto;
+  /* background-color: rgb(2,4,43); */
+  background-image: linear-gradient(to right,rgb(2,4,43), rgb(28, 33, 119));
+}
+

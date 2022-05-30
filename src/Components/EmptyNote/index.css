@@ -1,0 +1,35 @@
+.empty-notes-container {
+  text-align: center;
+  margin-left: 420px;
+  width: 400px;
+  /* color: white; */
+  margin-top: 80px;
+  /* border: 2px solid black; */
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-image: linear-gradient(to right,rgb(7, 12, 94), rgb(28, 33, 119)); */
+  background-color:rgb(28, 33, 119);
+  border-radius: 25px;
+  /* border: 2px solid rgb(238, 64, 29); */
+  
+}
+.empty-notes-container:hover{
+ 
+  background-color: rgb(21, 10, 124);
+  color: rgb(247, 225, 218);
+  cursor: pointer;
+ 
+
+}
+.empty-notes-container:hover > .empty-text  {
+  color: rgb(247, 225, 218);
+
+}
+
+.empty-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}

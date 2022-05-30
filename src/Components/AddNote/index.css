@@ -1,0 +1,86 @@
+.note-container {
+    position: relative;
+    
+  }
+  .note-create-container {
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+  }
+  .note-create-container ::placeholder{
+      font-size: 20px;
+      color: rgb(12, 19, 163);
+  }
+  
+  .note-input {
+    width: 400px;
+    height: 40px;
+    /* border: 2px solid rgb(241, 94, 65); */
+    border: 2px solid transparent;
+    border-bottom: 2px solid rgb(12, 19, 163);
+    background-color: rgb(247, 225, 218);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-left: 15px;
+    color: rgb(12, 19, 163);
+    font-size: 18px;
+  }
+  .note-input:focus {
+    border: 2px solid rgb(12, 19, 163);
+    /* border-bottom: 2px solid rgb(236, 127, 105); */
+    border-bottom: 2px solid rgb(12, 19, 163);
+    box-shadow: 0 0 8px #2b4961;
+    outline-offset: 0px;
+    outline: none;
+  }
+  
+  .note-textarea {
+    width: 400px;
+    height: 80px;
+    border: 2px solid transparent;
+    /* border: 2px solid rgb(241, 94, 65); */
+    background-color: rgb(247, 225, 218);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-left: 15px;
+    color: rgb(12, 19, 163);
+    font-size: 16px;
+    resize: none;
+  }
+  
+  .note-textarea:focus {
+    border: 2px solid rgb(12, 19, 163);
+    box-shadow: 0 0 8px #2b4961;
+    border-top: 2px solid transparent;
+    outline-offset: 0px;
+    outline: none;
+  }
+  
+  .add_note_btn {
+    border-radius: 50%;
+    background-color: rgb(14, 47, 139);
+    color: rgb(241, 203, 185);
+    border: 2px solid transparent;
+    position: absolute;
+    right: 33%;
+    top: 80%;
+  }
+  .add-icon {
+    font-size: 35px;
+  }
+  .add_note_btn :hover {
+    cursor: pointer;
+  }
+
+  .error-block-label{
+    width: 350px;
+    text-align: center;
+    margin-bottom: 2%;
+    padding: 5px;
+    border: 1px solid black;
+  }
+ 
+  
